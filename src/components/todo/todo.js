@@ -43,7 +43,6 @@ const ToDo = () => {
   }, [list]);
 
   return (
-    
     <>
       <header>
         <h1 id="title">To Do List: {incomplete} items pending</h1>
