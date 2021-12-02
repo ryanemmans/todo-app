@@ -1,0 +1,22 @@
+@import "~@blueprintjs/core/lib/css/blueprint.css";
+@import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
+
+$backgroundColor: #efefef;
+$radius: 40%;
+
+#title {
+  font-size: 3rem;
+  font-weight: 200;
+  color: white;
+  margin: .5rem;
+}
+
+.todo{
+  display: flex;
+  flex-direction: column;
+  margin: 5rem auto 0 auto;
+}
+
+.form, .list {
+  margin: 0 auto;
+}
