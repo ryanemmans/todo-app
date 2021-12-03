@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export const SettingsContext = React.createContext(); // our Context singleton from which we can derive / get access to our Provider
 
 function SettingsProvider({ children }) {
 
-  const [pagination, setPagination] = useState(3);
-  const [sort, setSort] = useState('difficulty');
-  const [hide, setHide] = useState(false);
+  // const [pagination, setPagination] = useState(3);
+  // const [sort, setSort] = useState('difficulty');
+  // const [hide, setHide] = useState(false);
 
   const values = {
     pagination: 3,

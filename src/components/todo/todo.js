@@ -23,10 +23,10 @@ const ToDo = (props) => {
     setList([...list, item]);
   }
 
-  function deleteItem(id) {
-    const items = list.filter(item => item.id !== id);
-    setList(items);
-  }
+  // function deleteItem(id) {
+  //   const items = list.filter(item => item.id !== id);
+  //   setList(items);
+  // }
 
   function toggleComplete(id) {
 
@@ -44,7 +44,7 @@ const ToDo = (props) => {
     let incompleteCount = list.filter(item => !item.complete).length;
     setIncomplete(incompleteCount);
     document.title = `To Do List: ${incomplete}`;
-  }, [list]);
+  }, [list, incomplete]);
 
   const paginate = () => {
     let startIndex = endIndex - settingsValues.pagination;
