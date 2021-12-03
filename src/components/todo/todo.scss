@@ -2,7 +2,6 @@
 @import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
 
 $backgroundColor: #efefef;
-$radius: 40%;
 
 #title {
   font-size: 3rem;
@@ -14,6 +13,7 @@ $radius: 40%;
 .todo{
   display: flex;
   flex-direction: column;
+  text-align: center;
   margin: 5rem auto 0 auto;
 }
 
