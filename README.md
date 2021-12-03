@@ -20,6 +20,16 @@ Phase 1: Incorporate configuration settings to the application
   - How many To Do Items to show at once
   - Whether or not to show completed items
 
+### **Phase 2 Requirements**
+
+- Implement the Context API to make some basic application settings available to components
+  - How many To Do Items to show at once
+  - Whether or not to show completed items
+- Provide the users with a form where they can change the values for those settings
+  - This should be given in the form of a new component, perhaps linked to from the main navigation
+- Save the users choices in Local Storage
+- Retrieve their preferences from Local Storage and apply them to the application on startup
+
 ## Links to application deployment
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ea299ceb-2c3f-430b-9141-2413aa27cb00/deploy-status)](https://ryanemmans-todo-app.netlify.app/)  
@@ -29,8 +39,6 @@ Phase 1: Incorporate configuration settings to the application
 ## Requirements / Notes
 
 *Create a settings Context that can define how our components should display elements to the User.*
-
-
 
 - Implement the React context API for defining settings across the entire application.
   - Create a context for managing application display settings and provide this at the application level.
