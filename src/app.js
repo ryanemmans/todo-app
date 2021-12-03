@@ -2,7 +2,8 @@ import React from 'react';
 import './app.scss';
 
 // import Header from './components/header/Header';
-import ToDo from './components/todo/ToDo.js';
+import ToDo from './components/todo/todo.js';
+import People from './components/people/People';
 
 export default class App extends React.Component {
   render() {
@@ -10,6 +11,7 @@ export default class App extends React.Component {
       <>
         {/* <Header /> */}
         <ToDo />
+        <People />
       </>
     );
   }

@@ -1,19 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import useForm from '../../hooks/form.js';
+
+import { SettingsContext } from '../../context/settings';
 // import Header from '../header/Header.js';
 import './todo.scss';
 import { Label, Button } from '@blueprintjs/core';
 
 import { v4 as uuid } from 'uuid';
 
-const ToDo = () => {
+const ToDo = (props) => {
+
+  let settingsValues = useContext(SettingsContext); // opt into our Settings Context values
 
   const [list, setList] = useState([]);
+  const [endIndex, setEndIndex] = useState(settingsValues.pagination);
   const [incomplete, setIncomplete] = useState([]);
   const { handleChange, handleSubmit } = useForm(addItem);
 
   function addItem(item) {
-    console.log(item);
     item.id = uuid();
     item.complete = false;
     setList([...list, item]);
@@ -42,6 +46,26 @@ const ToDo = () => {
     document.title = `To Do List: ${incomplete}`;
   }, [list]);
 
+  const paginate = () => {
+    let startIndex = endIndex - settingsValues.pagination;
+    // let end = settingsValues.pagination;
+
+    return list.slice(startIndex, endIndex);
+    // .filter(item => item.difficulty !== settingsValues.difficulty)
+  };
+
+  const handlePrevious = (e) => {
+    e.preventDefault();
+
+    setEndIndex(endIndex - settingsValues.pagination);
+  };
+
+  const handleNext = (e) => {
+    e.preventDefault();
+
+    setEndIndex(endIndex + settingsValues.pagination);
+  };
+
   return (
     <>
       <header>
@@ -49,8 +73,8 @@ const ToDo = () => {
       </header>
 
       <section className="todo">
+        <h2>Add To Do Item</h2>
         <form className="form" onSubmit={handleSubmit}>
-          <h2>Add To Do Item</h2>
 
           <Label>
             <span>To Do Item </span>
@@ -72,17 +96,19 @@ const ToDo = () => {
           </Label>
         </form>
 
-        {list.map(item => (
-
-          <div className="list" key={item.id}>
-            <p>{item.text}</p>
-            <p><small>Assigned to: {item.assignee}</small></p>
-            <p><small>Difficulty: {item.difficulty}</small></p>
-            <div onClick={() => toggleComplete(item.id)}>Complete: {item.complete.toString()}</div>
-            <hr />
-          </div>
-        ))}
-
+        <div className="list">
+          {paginate().map((item, idx) => (
+            <div key={idx}>
+              <p>{item.text}</p>
+              <p><small>Assigned to: {item.assignee}</small></p>
+              <p><small>Difficulty: {item.difficulty}</small></p>
+              <div onClick={() => toggleComplete(item.id)}>Complete: {item.complete.toString()}</div>
+              <hr />
+            </div>
+          ))}
+          <Button icon="arrow-left" onClick={handlePrevious} />
+          <Button icon="arrow-right" onClick={handleNext} />
+        </div>
       </section>
     </>
   );
