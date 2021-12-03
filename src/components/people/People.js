@@ -10,7 +10,7 @@ class People extends React.Component {
   handlePerson = () => {
     let payload = {
       name: 'Ryan',
-      role: 'student',
+      role: 'Dev',
     };
 
     this.context.addPerson(payload);
@@ -19,10 +19,10 @@ class People extends React.Component {
   render() {
     return (
       <section className="people">
+        <Button icon="add" large="large" intent="warning" onClick={this.handlePerson} text="Add Person" />
         <div className="person">
-          <Button large="large" intent="primary" onClick={this.handlePerson} text="Add Person" />
           {this.context.people.map(person => {
-            return <p>{person.name}</p>;
+            return <p>{person.name}: {person.role}</p>;
           })}
         </div>
       </section >
