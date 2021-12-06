@@ -4,7 +4,7 @@ import useForm from '../../hooks/form.js';
 import { SettingsContext } from '../../context/settings';
 // import Header from '../header/Header.js';
 import './todo.scss';
-import { Label, Button } from '@blueprintjs/core';
+import { InputGroup, Label, Button } from '@blueprintjs/core';
 
 import { v4 as uuid } from 'uuid';
 
@@ -72,27 +72,27 @@ const ToDo = (props) => {
         <h1 id="title">To Do List: {incomplete} items pending</h1>
       </header>
 
+      <h2>Add To Do Item</h2>
       <section className="todo">
-        <h2>Add To Do Item</h2>
         <form className="form" onSubmit={handleSubmit}>
 
           <Label>
-            <span>To Do Item </span>
-            <input onChange={handleChange} name="text" type="text" placeholder="Item Details" />
+            <span>To Do Item: </span>
+            <InputGroup className="todoInput" onChange={handleChange} name="text" type="text" placeholder="Item Details" />
           </Label>
 
           <Label>
-            <span>Assigned To </span>
-            <input onChange={handleChange} name="assignee" type="text" placeholder="Assignee Name" />
+            <span>Assigned To: </span>
+            <InputGroup className="todoInput" onChange={handleChange} name="assignee" type="text" placeholder="Assignee Name" />
           </Label>
 
           <Label>
-            <span>Difficulty </span>
-            <input onChange={handleChange} defaultValue={3} type="range" min={1} max={5} name="difficulty" />
+            <span>Difficulty: </span>
+            <InputGroup className="todoInput" onChange={handleChange} defaultValue={3} type="range" min={1} max={5} name="difficulty" />
           </Label>
 
           <Label>
-            <Button icon="add" large="large" intent="primary" type="submit" text="Add Item" />
+            <Button className="todoButton" icon="add" intent="primary" type="submit" text="Add Item" />
           </Label>
         </form>
 

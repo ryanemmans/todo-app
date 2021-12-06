@@ -1,0 +1,19 @@
+@import "~@blueprintjs/core/lib/css/blueprint.css";
+@import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
+
+.login{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 6.5rem auto 0 auto;
+}
+
+.loginForm {
+  display: inline;
+  justify-content: center;
+}
+
+.loginInput, .loginButton {
+  width: 15rem;
+  margin: .5rem auto;
+}

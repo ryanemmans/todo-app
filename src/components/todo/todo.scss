@@ -10,13 +10,22 @@ $backgroundColor: #efefef;
   margin: .5rem;
 }
 
+h2 {
+text-align: center;
+text-decoration: underline;
+}
+
 .todo{
   display: flex;
   flex-direction: column;
-  text-align: center;
-  margin: 5rem auto 0 auto;
+  text-align: left;
 }
 
 .form, .list {
+  margin: 0 auto;
+}
+
+.todoInput, .todoButton {
+  width: 15rem;
   margin: 0 auto;
 }
