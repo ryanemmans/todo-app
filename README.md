@@ -6,9 +6,11 @@ Author: Ryan Emmans
 
 ### To Do List Manager
 
-Phase 1: Incorporate configuration settings to the application
+Phase 1/2: Incorporate configuration settings to the application
 
-- In this phase, we’ll be adding some top-level settings for the application, so that the user can make some display choices that the app will use by default.
+Phase 3: Adding security and access controls to the application.
+
+Phase 4: Integrating with a live API
 
 ### **Phase 1 Requirements**
 
@@ -29,6 +31,15 @@ Phase 1: Incorporate configuration settings to the application
   - This should be given in the form of a new component, perhaps linked to from the main navigation
 - Save the users choices in Local Storage
 - Retrieve their preferences from Local Storage and apply them to the application on startup
+
+### **Phase 3 Requirements**
+
+- Provide a way for other users to create new accounts.
+- Provide a way for all users to login to their account.
+- Make sure that To Do items are only viewable to users that have logged in with a valid account.
+- Ensure that only fellow users that are allowed to “create”, based on their user type, can add new To Do Items.
+- Ensure that only fellow users that are allowed to “update”, based on their user type, can mark To Do Items complete.
+- Ensure that only fellow users that are allowed to “delete”, based on their user type, can delete new To Do Items.
 
 ## Links to application deployment
 
