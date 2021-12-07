@@ -41,6 +41,14 @@ Phase 4: Integrating with a live API
 - Ensure that only fellow users that are allowed to “update”, based on their user type, can mark To Do Items complete.
 - Ensure that only fellow users that are allowed to “delete”, based on their user type, can delete new To Do Items.
 
+### **Phase 4 Requirements**
+
+1. Alter the Add, Toggle Complete, and Delete functions within your to-do application to use your API instead of in-memory state.
+    - Fetch the current list of items from the database on application start
+    - Whenever you add/update/delete an item, refresh the state so the user can instantly see the change
+2. Alter the Login Context to use the server to login users instead of our mock users list.
+    - Be sure to store the token in state as well as in a cookie so you can reference it later.
+
 ## Links to application deployment
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ea299ceb-2c3f-430b-9141-2413aa27cb00/deploy-status)](https://ryanemmans-todo-app.netlify.app/)  
@@ -58,7 +66,7 @@ Phase 4: Integrating with a live API
   - Default sort field (string).
   - Manually set (hard code) those state settings in the context provider’s state, they should not be changeable.
 - Consume and utilize context values throughout your components
-  - Show a maximum of a certain number of items per screen in the <List /> component
+  - Show a maximum of a certain number of items per screen in the `<List />` component
     - Provide “next” and “previous” links to let the users navigate a long list of items
   - Hide or show completed items in the list
   - Optional: Sort the items based on any of the keys (i.e. difficulty)
@@ -68,3 +76,23 @@ Phase 4: Integrating with a live API
 - Only display the first n items in the list, where n is the number to display per screen in your context.
   - If you have more than n items in the list, add a button labeled Next that will replace the list with the next n items in the list.
   - If you are past the first n items (i.e. on page 2 or higher), add a button labeled Previous that will replace the list with the previous n items in the list.
+
+  - - -
+
+### API Server
+
+- You will need deployed API Server, which implements a todo item data model
+  - `GET /todo`: Gets a list of all items
+  - `POST /todo`: Adds an item
+  - `PUT /todo`: Updates an item (you’ll use this to mark them as complete)
+  - `DELETE /todo/:id`: Deletes an item
+
+### Authentication Server
+
+- You will need a deployed Authenticated API Server, which supports:
+  - Registration (`/signup`)
+  - Login (`/signin`)
+  - Authorization (via Bearer Token)
+  - ACL (using user roles)
+    - Make sure you have created the user roles and permissions lists that your front-end is expecting to tap into
+  - To Do data model for storing the actual to do items
